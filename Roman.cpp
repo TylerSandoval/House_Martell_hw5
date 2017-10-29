@@ -4,90 +4,9 @@
 
 #include "Roman.h"
 
-unsigned int Roman::convertFromRoman(const string roman)
+unsigned int Roman::convertFromRoman(const string romanValue)
 {
-    string romanValue;
-    int number = 0;
-
-    for(int count = (roman.length()-1); count >=0; count--)
-    {
-        if(roman.at(count) == 'I')
-        {
-            number = number +1;
-        }
-        else if(roman.at(count) == 'V')
-        {
-            if(roman.at(count-1) == 'I')
-            {
-                number = number + 4;
-                count = count - 1;
-            }
-            else
-            {
-                number = number + 5;
-            }
-        }
-        else if(roman.at(count) == 'X')
-        {
-            number = number +10;
-        }
-        else if(roman.at(count) == 'L')
-        {
-            if(count > 0)
-            {
-                if(roman.at(count-1) == 'X')
-                {
-                    number = number + 40;
-                    count = count - 1;
-                }
-                else
-                {
-                    number = number + 50;
-                }
-            }
-            else
-            {
-                number = number + 50;
-            }
-        }
-        else if(roman.at(count) == 'C')
-        {
-            number = number +100;
-        }
-        else if(roman.at(count) == 'D')
-        {
-            if(count > 0)
-            {
-                if(roman.at(count-1) == 'X')
-                {
-                    number = number + 400;
-                    count = count - 1;
-                }
-                else
-                {
-                    number = number + 500;
-                }
-            }
-            else
-            {
-                number = number + 500;
-            }
-        }
-
-        else if(roman.at(count) == 'M')
-        {
-            number = number +1000;
-        }
-        else
-        {
-            cout << roman.at(count)<< " is not a roman number "<< endl;
-        }
-    }
-    value = number;
-    cout << "\tRoman number " << roman << " length  " << roman.length() << endl;
-    cout << "\tDecimal Value: " << value << endl;
-    return number;
-    /*unsigned int sum = 0;
+    unsigned int sum = 0;
 
     for (int i = 0; i < romanValue.length(); i++)
     {
@@ -96,7 +15,7 @@ unsigned int Roman::convertFromRoman(const string roman)
             case 'M':
                 sum += 1000;
                 break;
-                
+
             case 'D':
                 sum += 500;
                 break;
@@ -128,9 +47,9 @@ unsigned int Roman::convertFromRoman(const string roman)
 
         }//switch
     }
-    return sum;*/
-
+    return sum;
 }
+
 
 //This helps with testing, do not modify.
 bool checkTest(string testName, int whatItShouldBe, const Roman& obj)
