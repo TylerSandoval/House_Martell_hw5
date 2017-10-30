@@ -132,6 +132,54 @@ unsigned int Roman::convertFromRoman(const string roman)
 
 }
 
+string Roman::convertToRoman() const {
+    string number = "";
+    int decimal = value;
+    while(decimal > 0)
+    {
+        if(decimal >= 1000)
+        {
+            number = number + 'M';
+            decimal = decimal - 1000;
+        }
+        else if(decimal >= 500)
+        {
+            number = number + 'D';
+            decimal = decimal - 500;
+        }
+        else if(decimal >= 100)
+        {
+            number = number + 'C';
+            decimal = decimal - 100;
+        }
+        else if(decimal >= 50)
+        {
+            number = number + 'L';
+            decimal = decimal - 50;
+        }
+        else if(decimal >= 10)
+        {
+            number = number + 'X';
+            decimal = decimal - 10;
+
+        }
+        else if(decimal >= 5)
+        {
+            number = number + 'V';
+            decimal = decimal - 5;
+
+        }
+        else if(decimal >= 1)
+        {
+            number = number + 'I';
+            decimal = decimal - 1;
+
+        }
+
+    }
+    return number;
+}
+
 //This helps with testing, do not modify.
 bool checkTest(string testName, int whatItShouldBe, const Roman& obj)
 {
@@ -146,8 +194,21 @@ bool checkTest(string testName, int whatItShouldBe, const Roman& obj)
         return false;
     }
 }
+//This helps with testing, do not modify.
+bool checkTest(string testName, string whatItShouldBe, string whatItIs )
+{
+    if (whatItShouldBe == whatItIs)
+    {
+        cout << "Passed " << testName << endl;
+        return true;
+    }
+    else
+    {
+        cout << "****** Failed test " << testName << " ****** " << endl << "     Object contained: "<< whatItIs << endl << "     Output should have contained: " << whatItShouldBe << endl;
+        return false;
+    }
+}
 
-/*
 void testOutput()
 {
     Roman a("MDCLXVI");
@@ -160,4 +221,4 @@ void testOutput()
     checkTest("testOutput #2", "VII", b);
 
 }
- */
+

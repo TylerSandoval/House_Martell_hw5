@@ -11,7 +11,7 @@ void testConstructor();
 //void testOperatorPlusEqual();
 //void testOperatorIncrement();
 //void testConsoleIO();
-
+void testOutput();
 /* Main Function */
 int main()
 {
@@ -19,7 +19,7 @@ int main()
     //testOperatorPlus();
     //testOperatorPlusEqual();
     //testOperatorIncrement();
-    //testOutput();
+    testOutput();
     return 0;
 };
 
