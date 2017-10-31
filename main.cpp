@@ -7,7 +7,7 @@ using namespace std;
 
 // Testing Function Prototypes
 void testConstructor();
-//void testOperatorPlus();
+void testOperatorPlus();
 //void testOperatorPlusEqual();
 //void testOperatorIncrement();
 //void testConsoleIO();
@@ -16,7 +16,7 @@ void testOutput();
 int main()
 {
     testConstructor();
-    //testOperatorPlus();
+    testOperatorPlus();
     //testOperatorPlusEqual();
     //testOperatorIncrement();
     testOutput();
@@ -43,7 +43,7 @@ void testConstructor()
     checkTest("testConstructor #3", 4332, b);
 
 }
-/*
+
 void testOperatorPlus()
 {
 	//Test adding two roman objects
@@ -61,14 +61,16 @@ void testOperatorPlus()
 	//make sure the left operand wasn't modified
 	checkTest("testOperatorPlus #5", 16, a);
 
+
 	//Test adding an int with an object
 	c = 578 + a;
 	checkTest("testOperatorPlus #6", 594, c);
 	//make sure the right operand wasn't modified
 	checkTest("testOperatorPlus #7", 16, a);
 
-}
 
+}
+/*
 void testOperatorPlusEqual()
 {
 	//Test adding two roman objects

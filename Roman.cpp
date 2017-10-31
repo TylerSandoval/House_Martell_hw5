@@ -222,3 +222,24 @@ void testOutput()
 
 }
 
+Roman Roman::operator+(const Roman& obj) const {
+    Roman r;
+    r.value = this->value + obj.value;
+    return r;
+}
+
+Roman Roman::operator+(const int num) const {
+    Roman r;
+    r.value = this->value + num;
+    return r;
+}
+Roman operator+(int num, Roman &x){
+    Roman r;
+    r.value = num + x.getValue();
+    return r;
+}
+
+
+
+
+
