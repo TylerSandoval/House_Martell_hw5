@@ -223,7 +223,12 @@ void testConstructor()
     //Test a bigger number.
     Roman b("MMMDDCCLLXXVVII");
     checkTest("testConstructor #3", 4332, b);
+
+    Roman c("IV");
+    checkTest("testConstructor #3", 4, c);
 }
+
+
 
 void testOperatorPlus()
 {
@@ -287,7 +292,16 @@ void testOutput()
     checkTest("testOutput #2", "VII", b);
 
 }
-Roman Roman::operator+(const Roman& obj) const
+
+Roman operator+(const int v, const Roman& r1)
+{
+    Roman r;
+    r.setValue(v + r1.getValue());
+    return r;
+}
+
+
+Roman Roman::operator+(const Roman &obj) const
 {
     Roman r;
     r.value = this->value + obj.value;
@@ -300,12 +314,7 @@ Roman Roman::operator+(const int num) const
     r.value = this->value + num;
     return r;
 }
-Roman operator+(int num, Roman &x)
-{
-    Roman r;
-    r.value = num + x.getValue();
-    return r;
-}
+
 
 void Roman::operator+=(const Roman &obj)
 {
@@ -335,6 +344,16 @@ Roman::Roman()
 {
     value = 0;
 }
+
+unsigned int Roman::getValue() const {
+    return value;
+}
+
+void Roman::setValue(unsigned int value) {
+    Roman::value = value;
+}
+
+
 
 
 

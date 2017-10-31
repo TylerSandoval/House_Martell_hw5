@@ -26,14 +26,14 @@ public:
 
     Roman operator+(const Roman&) const;  //The left and right operands are Roman objects
     Roman operator+(const int) const; //The left operand is a Roman object, the right is an int number.
-    friend Roman operator+(int num, Roman &x);
-    int getValue(){
-        return value;
-    }
-    void setValue(int val){
-        value = val;
-    }
-    void operator +=(const Roman&);  //The left and right operands are Roman objects, but the left operand can change.
+    //friend Roman operator+(int num, Roman &x);
+
+    void operator +=(const Roman&);
+
+    unsigned int getValue() const;
+    void setValue(unsigned int value);
+
+    //The left and right operands are Roman objects, but the left operand can change.
     void operator +=(const int);  //The left operand is a Roman object, the right is an int number.  The left operand can change.
     Roman operator++();  //The prefix ++ operator
 
@@ -41,5 +41,6 @@ public:
     friend bool checkTest(string, int , const Roman&);  //A testing function.  It is friended so it can access the class.
     friend void testOutput(); //Another test function that needs to access private class members.
 };
+Roman operator+(const int v, const Roman &r1);
 
 #endif //HOUSE_MARTELL_HW5_ROMAN_H
