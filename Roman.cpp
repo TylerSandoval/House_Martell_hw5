@@ -371,7 +371,8 @@ Roman::Roman()
  * Returns the value
  * @return
  */
-unsigned int Roman::getValue() const {
+unsigned int Roman::getValue() const
+{
     return value;
 }
 
@@ -379,7 +380,8 @@ unsigned int Roman::getValue() const {
  * setValue : Setter for Roman Class
  * @param value : Int value to set class at
  */
-void Roman::setValue(unsigned int value) {
+void Roman::setValue(unsigned int value)
+{
     Roman::value = value;
 }
 
