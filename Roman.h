@@ -21,9 +21,6 @@ public:
 
     Roman(const string romanValue); //The constructor which accepts a string and  converts it internally to an integer.  It actually just forwards it onto convertFromRoman()
 
-
-    //string convertToRoman() const;  //The method that helps us take an integer and turn it into a roman numeral
-
     Roman operator+(const Roman&) const;  //The left and right operands are Roman objects
     Roman operator+(const int) const; //The left operand is a Roman object, the right is an int number.
     //friend Roman operator+(int num, Roman &x);

@@ -86,49 +86,6 @@ void Roman::convertFromRoman(const string roman)
     value = number;
     cout << "\tRoman number " << roman << " length  " << roman.length() << endl;
     cout << "\tDecimal Value: " << value << endl;
-    /*unsigned int sum = 0;
-
-    for (int i = 0; i < romanValue.length(); i++)
-    {
-        switch(romanValue.at(i))
-        {
-            case 'M':
-                sum += 1000;
-                break;
-                
-            case 'D':
-                sum += 500;
-                break;
-
-            case 'C':
-                sum += 100;
-                break;
-
-            case 'L':
-                sum += 50;
-                break;
-
-            case 'X':
-                sum += 10;
-                break;
-
-            case 'V':
-                sum += 5;
-                break;
-
-            case 'I':
-                sum += 1;
-                break;
-
-            default:
-                cout << romanValue.at(i) << " is not a Roman Numeral!" << endl;
-                sum = 0;
-                break;
-
-        }//switch
-    }
-    return sum;*/
-
 }
 
 string Roman::convertToRoman() const {
@@ -224,8 +181,6 @@ void testConstructor()
     Roman b("MMMDDCCLLXXVVII");
     checkTest("testConstructor #3", 4332, b);
 
-    Roman c("IV");
-    checkTest("testConstructor #3", 4, c);
 }
 
 
