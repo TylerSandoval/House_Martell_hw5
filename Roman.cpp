@@ -4,6 +4,10 @@
 
 #include "Roman.h"
 
+/*!
+ * convertFromRoman : Takes Roman Numeral string and converts to integer
+ * @param roman : String Roman Numeral
+ */
 void Roman::convertFromRoman(const string roman)
 {
     string romanValue;
@@ -88,6 +92,10 @@ void Roman::convertFromRoman(const string roman)
     cout << "\tDecimal Value: " << value << endl;
 }
 
+/*!
+ * convertToRoman : Takes integer value and converts to Roman Numeral String
+ * @return : Returns Roman Numeral String
+ */
 string Roman::convertToRoman() const {
     string number = "";
     int decimal = value;
@@ -136,6 +144,13 @@ string Roman::convertToRoman() const {
 }
 
 //This helps with testing, do not modify.
+/*!
+ * checkTest : Tests for correct Roman Numeral Conversion
+ * @param testName : String value to test roman numeral
+ * @param whatItShouldBe : int value to compare with
+ * @param obj : The class that the value is taken from
+ * @return : Returns whether or not the method words
+ */
 bool checkTest(string testName, int whatItShouldBe, const Roman& obj)
 {
     if (whatItShouldBe == obj.value)
@@ -150,6 +165,13 @@ bool checkTest(string testName, int whatItShouldBe, const Roman& obj)
     }
 }
 //This helps with testing, do not modify.
+/*!
+ * checkTest : Tests for correct Roman Numeral conversion
+ * @param testName : string value to test roman numeral
+ * @param whatItShouldBe : string value to test against
+ * @param whatItIs : string actual value for testing
+ * @return : Whether or not the conversinon works
+ */
 bool checkTest(string testName, string whatItShouldBe, string whatItIs )
 {
     if (whatItShouldBe == whatItIs)
@@ -167,6 +189,9 @@ bool checkTest(string testName, string whatItShouldBe, string whatItIs )
 /* This MAY be in a different source and header file */
 
 //This helps with testing, do not modify.
+/*!
+ *  Tests whether or not the constructors function properly
+ */
 void testConstructor()
 {
     //Test to make sure that empty objects are set to zero.
@@ -183,8 +208,9 @@ void testConstructor()
 
 }
 
-
-
+/*!
+ *  Tests whether the addition operators work properly
+ */
 void testOperatorPlus()
 {
     //Test adding two roman objects
@@ -209,7 +235,9 @@ void testOperatorPlus()
     //make sure the right operand wasn't modified
     checkTest("testOperatorPlus #7", 16, a);
 }
-
+/*!
+ * Tests whether the plus-equal(+=) class operators work properly
+ */
 void testOperatorPlusEqual()
 {
     //Test adding two roman objects
@@ -224,7 +252,9 @@ void testOperatorPlusEqual()
     b += 17;
     checkTest("testOperatorPlusEqual #3", 1218, b);
 }
-
+/*!
+ * Tests whether the increment method works properly
+ */
 void testOperatorIncrement()
 {
     //Test prefix increment
@@ -234,7 +264,9 @@ void testOperatorIncrement()
     checkTest("testOperatorIncrement #1", 1053, a);
     checkTest("testOperatorIncrement #2", 1053, b);
 }
-
+/*!
+ * Tests whether the output for conversions properly work
+ */
 void testOutput()
 {
     Roman a("MDCLXVI");
@@ -248,6 +280,12 @@ void testOutput()
 
 }
 
+/*!
+ * Operator+ : Adds a integer constant with a Roman Class value
+ * @param v : Integer constant
+ * @param r1 : Class being added to
+ * @return : Returns new sum of integer and class
+ */
 Roman operator+(const int v, const Roman& r1)
 {
     Roman r;
@@ -255,7 +293,11 @@ Roman operator+(const int v, const Roman& r1)
     return r;
 }
 
-
+/*!
+ * Roman::operator+ : Adds New Roman Class value onto Existing Class Value
+ * @param obj : The New Roman Class being Added
+ * @return : Returns Class With New Sum
+ */
 Roman Roman::operator+(const Roman &obj) const
 {
     Roman r;
@@ -263,6 +305,11 @@ Roman Roman::operator+(const Roman &obj) const
     return r;
 }
 
+/*!
+ * Roman::operator+ : Adds Constant Integer value onto Existing Class Value
+ * @param num : Integer being added to the class value
+ * @return : Returns Class with the New Sum Value
+ */
 Roman Roman::operator+(const int num) const
 {
     Roman r;
@@ -270,18 +317,29 @@ Roman Roman::operator+(const int num) const
     return r;
 }
 
-
+/*!
+ * Roman::operator+= : Takes New Class and Adds onto Existing Class Value
+ * @param obj : New Class Being Added
+ */
 void Roman::operator+=(const Roman &obj)
 {
     this->value += obj.value;
 
 }
 
+/*!
+ * Roman::operator+= : Takes Integer Value and Adds onto Existing Class Value
+ * @param number : Integer Value being added
+ */
 void Roman::operator+=(const int number)
 {
     this->value+=number;
 }
 
+/*!
+ * Roman::operator++ : Increments Class Value by One
+ * @return : Returns value + 1
+ */
 Roman Roman::operator++()
 {
     value++;
@@ -290,20 +348,37 @@ Roman Roman::operator++()
     return r;
 }
 
+/*!
+ * Roman : Constructor for class with 1 argument that takes a String
+ * @param romanValue : String value for a roman numeral
+ */
 Roman::Roman(const string romanValue)
 {
         convertFromRoman(romanValue);        //The constructor which accepts a string and  converts it internally to an integer.  It actually just forwards it onto convertFromRoman()
 }
 
+/*!
+ * Roman : Default Constructor for class, no arguments
+ * Default value is 0
+ */
 Roman::Roman()
 {
     value = 0;
 }
 
+/*!
+ * getValue : Getter for Roman Class
+ * Returns the value
+ * @return
+ */
 unsigned int Roman::getValue() const {
     return value;
 }
 
+/*!
+ * setValue : Setter for Roman Class
+ * @param value : Int value to set class at
+ */
 void Roman::setValue(unsigned int value) {
     Roman::value = value;
 }
